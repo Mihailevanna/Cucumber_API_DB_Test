@@ -1,6 +1,9 @@
 package Step_Definitions;
 
 import Utilities.Base_Driver;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.service.ExtentService;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -9,8 +12,20 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.AfterClass;
 
-public class Hooks {
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+public class Hooks {
+    private ExtentReports extent;
+    private ExtentTest test;
+    @Before
+    public void setUp(Scenario scenario) {
+        extent = new ExtentReports();
+        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("target/cucumber-reports/" + scenario.getName() + ".html");
+        extent.attachReporter(htmlReporter);
+
+        test = extent.createTest(scenario.getName());
+    }
 
     @After
     public void afterScenario(Scenario scenario) {
@@ -20,13 +35,11 @@ public class Hooks {
         }
         Base_Driver.quitDriver();
 
-        ExtentService.getInstance().setSystemInfo("Computer User Name", System.getProperty("user.name"));
         ExtentService.getInstance().setSystemInfo("Time Zone", System.getProperty("user.timezone"));
         ExtentService.getInstance().setSystemInfo("User Name", "Tester");
-        ExtentService.getInstance().setSystemInfo("Application Name", "HRM Project");
         ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name"));
         ExtentService.getInstance().setSystemInfo("Department", "QA");
         ExtentService.getInstance().setSystemInfo("Additional line", " ");
-    }
 
+    }
 }

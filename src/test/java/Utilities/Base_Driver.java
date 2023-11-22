@@ -19,6 +19,8 @@ public class Base_Driver {
         if (browserName.get() == null) {
             browserName.set("chrome");
         }
+        Logger logger = Logger.getLogger("");
+        logger.setLevel(Level.SEVERE);
         if (threadDriver.get() == null) {
             switch (browserName.get()) {
                 case "chrome":
@@ -37,8 +39,7 @@ public class Base_Driver {
                     threadDriver.set(new ChromeDriver());
 
             }
-            Logger logger = Logger.getLogger("");
-            logger.setLevel(Level.SEVERE);
+
 
 
         }
@@ -61,6 +62,10 @@ public class Base_Driver {
             threadDriver.set(null);
         }
 
+    }
+
+    public static void setBrowserName(String browser){
+        browserName.set(browser.toLowerCase());
     }
 }
 

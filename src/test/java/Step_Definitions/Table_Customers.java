@@ -1,4 +1,4 @@
-package JDBC_StepsDefinition;
+package Step_Definitions;
 
 import Utilities.JDBC_Utilities;
 import io.cucumber.datatable.DataTable;
@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class Table_Custoemers extends JDBC_Utilities {
+public class Table_Customers extends JDBC_Utilities {
 
     List<List<String>> dataFromDB;
 

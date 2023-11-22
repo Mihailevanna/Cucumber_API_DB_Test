@@ -10,7 +10,7 @@ Feature: The user is logged in successfully and the personal information page is
     When Click on navigation element
       | loginButton |
 
-
+@Smoke
   Scenario: Change personal Info
     And Click on navigation element
       | myInfo |
@@ -21,7 +21,7 @@ Feature: The user is logged in successfully and the personal information page is
       | saveButton |
     Then Verification
       | messageShow | success |
-
+@Smoke
   Scenario: Change personal Info (Negative) without entering lastName
     And Click on navigation element
       | myInfo |
