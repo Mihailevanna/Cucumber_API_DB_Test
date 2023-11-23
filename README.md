@@ -77,4 +77,9 @@ This JDBC testing suite verifies the "Customers" table in the "classicmodels" sc
 ### Usage
 
 1. **Run the Application:**
-   - Run the Runner Class for UI and DataBase Testing and XML file for API Testing.
+for UI and DataBase Testing Run: 
+   - Smoke "src/test/java/RunnerClasses/Smoke_Testing" 
+   - Regression "src/test/java/RunnerClasses/Regression_Testing"   
+   - Parallel "src/test/java/XMLFiles/Parallel_Testing"
+for API Testing: 
+   - Run XML file "src/test/java/XMLFiles/GoRestTest"
